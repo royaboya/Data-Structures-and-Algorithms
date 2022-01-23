@@ -1,19 +1,20 @@
 package LinkedList;
 
+/** Linked List implementation using a static inner Node class */
 public class LinkedList<E> {
     Node<E> head;
 
     static class Node<E> {
-        E data;
+        E data; // value, generic type
         Node<E> next;
 
-        Node(E data) {
+        Node(E data) { // node constructor, takes in value of generic type and sets the pointer to null
             this.data = data;
             next = null;
         }
     }
 
-    public LinkedList() { // check if better way
+    public LinkedList() {
         head = null;
     }
 
@@ -63,6 +64,10 @@ public class LinkedList<E> {
         }
     }
 
+    /**
+     * // There has to be a better way of doing this but this method is used to
+     * reverse the list in a cleaner way
+     */
     public Node<E> ReverseHelper() {
         Node<E> previous = null;
 
@@ -74,8 +79,6 @@ public class LinkedList<E> {
             head = nextNode; // head is now next node
         }
         return previous; // head will be null at end so return previous as new head
-        // bruh my LinkedList implementation doesnt work for this reverse method
-        // specifically
     }
 
     public void Reverse() {
